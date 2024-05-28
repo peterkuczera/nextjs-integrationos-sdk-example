@@ -7,11 +7,7 @@ const nextConfig = {
       test: /\.node$/,
       use: [
         {
-          loader: "nextjs-node-loader",
-          options: {
-            flags: os.constants.dlopen.RTLD_NOW,
-            outputPath: config.output.path
-          }
+          loader: "nextjs-node-loader"
         },
       ],
     });
