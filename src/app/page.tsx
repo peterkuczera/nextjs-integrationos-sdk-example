@@ -1,7 +1,7 @@
 import { IntegrationOS } from "@integrationos/node"
 
 async function CustomerList() {
-  const secretKey = process.env.SECRET_KEY
+  const secretKey = process.env.SECRET_KEY ?? ''
   const integrate = new IntegrationOS(secretKey);
 
   const response = await integrate
