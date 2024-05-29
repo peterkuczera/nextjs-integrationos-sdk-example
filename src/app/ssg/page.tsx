@@ -1,3 +1,5 @@
+const { family, familySync, GLIBC, MUSL } = require('detect-libc');
+
 const Dir = async() => {
   return (
     <div>
