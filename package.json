@@ -12,6 +12,7 @@
     "@integrationos/node": "^3.7.7",
     "bcrypt": "^5.1.1",
     "detect-libc": "^2.0.3",
+    "glob": "^10.4.1",
     "next": "14.2.3",
     "nextjs-node-loader": "^1.1.5",
     "react": "^18",
