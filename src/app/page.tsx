@@ -22,6 +22,7 @@ async function CustomerList() {
 const Home = async() => {
   const authkit = await AuthKit()
   const customers = await CustomerList()
+  const randomUuid = (await fetch('https://www.uuidtools.com/api/generate/v4', {cache: 'no-store'})).json()
 
   console.log(authkit instanceof AuthKitToken ? 'AuthKitToken object returned' : 'Other object returned')
 
@@ -31,6 +32,7 @@ const Home = async() => {
         <div>{/* { JSON.stringify(customers, null, 2) } */}</div>
         <div>customers.unified[0].createdAt: { customers.unified[0].createdAt }</div>
         <div>customers.headers.date: { customers.headers.date }</div>
+        <div>randomUuid: { randomUuid }</div>
       </pre>
     </div>
   );
