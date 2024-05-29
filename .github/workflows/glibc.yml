@@ -1,0 +1,11 @@
+name: glibc versions
+
+on: [push]
+
+jobs:
+  glibc_version:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04]
+    steps:
+      - run: ldd --version
