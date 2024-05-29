@@ -27,9 +27,10 @@ const Home = async() => {
 
   return (
     <div>
-      <pre>
-        {/* { JSON.stringify(data, null, 2) } */}
-        { customers.unified[0].createdAt }
+      <pre className="whitespace-pre-line">
+        <div>{/* { JSON.stringify(customers, null, 2) } */}</div>
+        <div>customers.unified[0].createdAt: { customers.unified[0].createdAt }</div>
+        <div>customers.headers.date: { customers.headers.date }</div>
       </pre>
     </div>
   );
