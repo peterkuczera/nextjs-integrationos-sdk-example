@@ -1,4 +1,12 @@
+import { AuthKitToken } from "@integrationos/authkit-node";
 import { IntegrationOS } from "@integrationos/node"
+
+async function AuthKit() {
+  const secretKey = process.env.SECRET_KEY ?? ''
+  const authKitToken = new AuthKitToken(secretKey);
+
+  return authKitToken;
+}
 
 async function CustomerList() {
   const secretKey = process.env.SECRET_KEY ?? ''
@@ -12,13 +20,16 @@ async function CustomerList() {
 }
 
 const Home = async() => {
-  const data = await CustomerList()
+  const authkit = await AuthKit()
+  const customers = await CustomerList()
+
+  console.log(authkit instanceof AuthKitToken ? 'AuthKitToken object returned' : 'Other object returned')
 
   return (
     <div>
       <pre>
         {/* { JSON.stringify(data, null, 2) } */}
-        { data.unified[0].createdAt }
+        { customers.unified[0].createdAt }
       </pre>
     </div>
   );
