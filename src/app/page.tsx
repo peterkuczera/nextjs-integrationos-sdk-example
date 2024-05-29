@@ -22,6 +22,7 @@ const Home = async() => {
         <div>customers.unified[0].createdAt: { customers.unified[0].createdAt }</div>
         <div>customers.headers.date: { customers.headers.date }</div>
         <div>randomUuid: { randomUuid }</div>
+        <div>&nbsp;</div>
       </pre>
     </div>
   );
