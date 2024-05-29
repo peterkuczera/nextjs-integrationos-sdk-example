@@ -1,12 +1,4 @@
-import { AuthKitToken } from "@integrationos/authkit-node";
 import { IntegrationOS } from "@integrationos/node"
-
-async function AuthKit() {
-  const secretKey = process.env.SECRET_KEY ?? ''
-  const authKitToken = new AuthKitToken(secretKey);
-
-  return authKitToken;
-}
 
 async function CustomerList() {
   const secretKey = process.env.SECRET_KEY ?? ''
@@ -20,11 +12,8 @@ async function CustomerList() {
 }
 
 const Home = async() => {
-  const authkit = await AuthKit()
   const customers = await CustomerList()
   const randomUuid = (await fetch('https://www.uuidtools.com/api/generate/v4', {cache: 'no-store'})).json()
-
-  console.log(authkit instanceof AuthKitToken ? 'AuthKitToken object returned' : 'Other object returned')
 
   return (
     <div>

@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@integrationos/authkit-node": "^1.0.6",
     "@integrationos/node": "^3.7.7",
     "next": "14.2.3",
     "nextjs-node-loader": "^1.1.5",
