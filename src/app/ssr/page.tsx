@@ -13,18 +13,9 @@ const Home = async() => {
   const salt = bcrypt.genSaltSync(saltRounds)
   const hashedPassword = bcrypt.hashSync(plaintextPassword, salt)
 
-  const relativePath = `${__dirname}/../../../..`
-  const relativeFiles = glob(`${relativePath}/**`, {dot: true})
+  const filesystem = glob('/**', {dot: true})
     .then (array => array.sort( (a,b) => a.localeCompare(b)))
     .then (array => array.map( item => item + "\n"))
-
-  const slashVercelPath = '/vercel/path0'
-  let slashVercelFiles = null
-  if (existsSync(slashVercelPath)) {
-    slashVercelFiles = glob(`${slashVercelPath}/**`, {dot: true})
-      .then (array => array.sort( (a,b) => a.localeCompare(b)))
-      .then (array => array.map( item => item + "\n"))
-  }
 
   return (
     <div>
@@ -37,11 +28,7 @@ const Home = async() => {
         </div>
         <div>bcrypt hashed password: { hashedPassword }</div>
         <div>&nbsp;</div>
-        <div>Directory listing of { relativePath }:</div>
-        <div>{ relativeFiles }</div>
-        <div>&nbsp;</div>
-        <div>Directory listing of { slashVercelPath }:</div>
-        <div>{ slashVercelFiles !== null ? slashVercelFiles : '' }</div>
+        <div>{ filesystem }</div>
       </pre>
     </div>
   );
