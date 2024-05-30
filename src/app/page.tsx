@@ -1,4 +1,5 @@
 import { IntegrationOS } from "@integrationos/node"
+import { existsSync } from 'fs';
 
 async function CustomerList() {
   const secretKey = process.env.SECRET_KEY ?? ''
@@ -12,6 +13,11 @@ async function CustomerList() {
 }
 
 const Home = async() => {
+
+  console.log(`current file: ${__filename}`)
+  console.log(`/vercel/path0/.next/server/chunks/node.linux-x64-gnu.node exists: ${existsSync('/vercel/path0/.next/server/chunks/node.linux-x64-gnu.node')}`)
+  console.log(`/var/task/.next/server/chunks/node.linux-x64-gnu.node exists: ${existsSync('/var/task/.next/server/chunks/node.linux-x64-gnu.node')}`)
+
   const customers = await CustomerList()
   const randomUuid = (await fetch('https://www.uuidtools.com/api/generate/v4', {cache: 'no-store'})).json()
 
