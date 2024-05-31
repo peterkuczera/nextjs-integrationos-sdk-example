@@ -4,9 +4,14 @@ import path from "path"
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config, { dev, isServer, webpack, nextRuntime }) => {
-    if (isServer) {
-      config.externals.push(/^@integrationos\/node-/);
-    }
+    config.module.rules.push({
+      test: /\.node$/,
+      use: [
+        {
+          loader: "nextjs-node-loader",
+        },
+      ],
+    });
 
     return config
   },
